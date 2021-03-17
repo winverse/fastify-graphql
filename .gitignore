@@ -1,0 +1,23 @@
+# package directories
+node_modules
+
+# environment
+.env.production
+.env.development
+
+# upload
+public/images/*
+
+# database
+ormconfig.json
+
+# production
+/dist
+/build
+
+# logs
+yarn-error.log
+
+# other
+.DS_Store
+
