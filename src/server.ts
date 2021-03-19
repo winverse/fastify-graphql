@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import './env';
-import App from './app';
+import app from './app';
 import { createConnection } from 'typeorm';
 
 const PORT = Number(process.env.PORT);
@@ -8,8 +8,6 @@ const PORT = Number(process.env.PORT);
 if (!PORT) {
   throw new Error('MISSING PORT ENV');
 }
-
-const app = new App();
 
 createConnection()
   .then(() => {

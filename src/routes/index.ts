@@ -7,7 +7,6 @@ const routes: FastifyPluginCallback = (fastify, options, done) => {
     const formaated = format(now, 'yyyy-MM-dd HH:mm');
     return { formaated };
   });
-
   done();
 };
 
