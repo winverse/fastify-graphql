@@ -18,7 +18,7 @@ export class Post {
   @Column({ type: 'text' })
   body!: string;
 
-  @Column({ type: 'varchar', length: 30 })
+  @Column({ type: 'varchar', length: 50 })
   thumbnail!: string;
 
   @ManyToOne(() => User, { onDelete: 'CASCADE' })
