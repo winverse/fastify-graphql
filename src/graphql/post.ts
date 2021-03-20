@@ -1,4 +1,5 @@
 import { gql } from 'mercurius-codegen';
+import { IResolvers } from '@graphql-tools/utils';
 
 export const typeDef = gql`
   type Post {
@@ -6,24 +7,19 @@ export const typeDef = gql`
     title: String
     body: String
     thumbnail: String
-    userId: Number
+    userId: Int
     user: User
   }
   extend type Query {
-    post(id: Number): Post
+    post(id: ID): Post
     posts: [Post]
   }
+
   extend type Mutation {
-    write(
-      title: String
-      thumbnail: String
-      body: String
-    )
-    update(
-      title: String
-      thumbanil: String
-      body: String
-    )
+    write(title: String, thumbnail: String, body: String): Post
+    update(title: String, thumbanil: String, body: String): Post
     delete(id: ID): Boolean
   }
 `;
+
+export const resolvers: IResolvers = {};
