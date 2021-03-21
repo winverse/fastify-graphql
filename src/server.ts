@@ -12,6 +12,5 @@ if (!PORT) {
 const App = new app();
 const Database = new database();
 
-Database.getConnection().then(() => {
-  App.start(PORT);
-});
+Database.getConnection();
+App.start(PORT);

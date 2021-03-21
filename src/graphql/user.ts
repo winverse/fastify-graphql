@@ -1,5 +1,7 @@
 import { gql } from 'mercurius-codegen';
 import { IResolvers } from '@graphql-tools/utils';
+import { not } from 'graphql-shield';
+import { isAuthenticated } from '../lib/rules';
 
 export const typeDef = gql`
   type User {
@@ -15,4 +17,24 @@ export const typeDef = gql`
   }
 `;
 
-export const resolvers: IResolvers = {};
+export const permission = {
+  Mutation: {
+    login: not(isAuthenticated),
+    register: not(isAuthenticated),
+    logout: isAuthenticated,
+  },
+};
+
+export const resolvers: IResolvers = {
+  Mutation: {
+    login: () => {
+      return true;
+    },
+    register: () => {
+      return true;
+    },
+    logout: () => {
+      return true;
+    },
+  },
+};
