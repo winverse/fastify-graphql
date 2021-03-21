@@ -10,14 +10,14 @@ export default class app {
 
   constructor() {
     this.setup();
-    this.mercurius();
+    this.graphql();
   }
 
   setup() {
     this.app.register(routes, { prefix: '/api' });
   }
 
-  mercurius() {
+  graphql() {
     const schemaMiddleware = applyMiddleware(schema, permissions);
     this.app.register(mercurius, {
       schema: schemaMiddleware,
