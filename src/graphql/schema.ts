@@ -23,7 +23,7 @@ async function moduleResolver(file: string) {
 }
 
 fs.readdirSync(__dirname)
-  .filter(filename => filename !== 'schema.ts')
+  .filter(filename => !['schema.ts', 'rules.ts'].includes(filename))
   .map(moduleResolver);
 
 export const schema = makeExecutableSchema({

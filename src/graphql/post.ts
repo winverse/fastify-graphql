@@ -1,6 +1,6 @@
 import { gql } from 'mercurius-codegen';
 import { IResolvers } from '@graphql-tools/utils';
-import { isAuthenticated } from '../lib/rules';
+import { isAuthenticated } from './rules';
 
 export const typeDef = gql`
   type Post {
